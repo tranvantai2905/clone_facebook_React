@@ -7,7 +7,7 @@ const layouts = {
 };
 
 const routers = [
-  { path: "", layout: layouts.atPrimary, element: HomePage, needLogin: false },
+  { path: "", layout: layouts.atPrimary, element: HomePage, needLogin: true },
   { path: "/login", element: LoginPage, needLogin: false },
 ];
 

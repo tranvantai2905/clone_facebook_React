@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { MainNavigatorGroup, MenuGroup, SearchGroup } from "../components";
 
 interface LayoutProps {
   children: ReactNode;
@@ -6,10 +7,14 @@ interface LayoutProps {
 
 const PrimLayout: FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="underline">
-      <nav className="h-14 w-full bg-slate-950"></nav>
+    <>
+      <nav className="w-ful h-14">
+        <SearchGroup />
+        <MainNavigatorGroup />
+        <MenuGroup />
+      </nav>
       <div>{children}</div>
-    </div>
+    </>
   );
 };
 
