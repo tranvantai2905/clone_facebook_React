@@ -34,7 +34,7 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
   return (
     <div
       className={cn(
-        "sticky top-14 hidden w-[340px] self-start pb-12 ease-in-out lg:block",
+        "sticky top-14 col-span-1 hidden self-start pb-12 ease-in-out md:block",
         className,
       )}
     >
@@ -45,6 +45,7 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
             {renderNavSideItems()}
           </div>
         </div>
+        <hr></hr>
         <div className="space-y-4 py-2">
           <h2 className="z-0 px-7 text-lg font-semibold tracking-tight">
             Your shortcuts
