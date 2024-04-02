@@ -2,7 +2,7 @@ import { NavigationMenuDemo } from "./NavigatorDemo";
 
 const MenuGroup = () => {
   return (
-    <div className="fixed right-5 top-0 flex h-14 items-center">
+    <div className="fixed right-5 top-0 z-50 flex h-14 items-center">
       <NavigationMenuDemo />
     </div>
   );
