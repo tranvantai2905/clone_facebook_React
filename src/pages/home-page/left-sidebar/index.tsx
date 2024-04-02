@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 
-import { item_list, SideBarItemWithIcon, SideBarItemWithImage } from "./item";
+import { item_list } from "./item";
+import { SideBarItemWithIcon, SideBarItemWithImage } from "../shared/item";
 import Icon from "@/shared/icon";
 import { ShortCut, useShortCutSidebar } from "./custom-hook";
 import { Info, useInfo } from "@/pages/shared/custom-hooks";
@@ -8,14 +9,8 @@ import { Info, useInfo } from "@/pages/shared/custom-hooks";
 interface LeftSidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function LeftSidebar({ className }: LeftSidebarProps) {
-  const [shortCuts, setShortCuts] = useShortCutSidebar() as [
-    ShortCut[],
-    React.Dispatch<React.SetStateAction<ShortCut[] | null>>,
-  ];
-  const [infos, setInfos] = useInfo() as [
-    Info,
-    React.Dispatch<React.SetStateAction<Info | null>>,
-  ];
+  const [shortCuts] = useShortCutSidebar() as [ShortCut[]];
+  const [infos] = useInfo() as [Info];
   console.log(infos, shortCuts);
   const renderNavSideItems = () =>
     item_list.map((item) => (
@@ -37,7 +32,12 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
       />
     ));
   return (
-    <div className={cn("pb-12", className)}>
+    <div
+      className={cn(
+        "sticky top-14 hidden w-[340px] self-start pb-12 ease-in-out lg:block",
+        className,
+      )}
+    >
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <div className="space-y-1">

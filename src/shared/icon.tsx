@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, forwardRef } from "react";
 import { LucideProps } from "lucide-react";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
 import { cn } from "@/lib/utils";
@@ -9,14 +9,19 @@ interface IconProps extends Omit<LucideProps, "ref"> {
   name: keyof typeof dynamicIconImports;
 }
 
-const Icon = ({ name, className, ...props }: IconProps) => {
+const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { name, className, ...otherProps } = props;
   const LucideIcon = lazy(dynamicIconImports[name]);
 
   return (
     <Suspense fallback={fallback}>
-      <LucideIcon className={cn("h-5 w-5", className)} {...props} />
+      <LucideIcon
+        className={cn("h-5 w-5", className)}
+        ref={ref}
+        {...otherProps}
+      />
     </Suspense>
   );
-};
+});
 
 export default Icon;
