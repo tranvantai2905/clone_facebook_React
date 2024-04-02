@@ -16,6 +16,7 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
     Info,
     React.Dispatch<React.SetStateAction<Info | null>>,
   ];
+  console.log(infos, shortCuts);
   const renderNavSideItems = () =>
     item_list.map((item) => (
       <SideBarItemWithIcon
@@ -25,7 +26,7 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
       />
     ));
   const renderInfoItems = () => (
-    <SideBarItemWithImage text={infos.username} src={infos.src} />
+    <SideBarItemWithImage text={infos?.username} src={infos?.src} />
   );
   const renderShortCutItems = () =>
     shortCuts?.map((item: ShortCut) => (
