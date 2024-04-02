@@ -32,6 +32,7 @@ const LoginBox = () => {
       setTimeout(() => {
         actions.setSubmitting(false);
         handleLogin(values);
+        navigator("/home");
       }, 2000);
     },
   });
@@ -47,7 +48,6 @@ const LoginBox = () => {
         onClick: () => console.log("Undo"),
       },
     });
-    navigator("/home");
   };
   return (
     <div className="flex flex-col rounded-md bg-white p-5 shadow-2xl">

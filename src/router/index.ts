@@ -11,7 +11,7 @@ const routers = [
     path: "/home",
     layout: layouts.atPrimary,
     element: HomePage,
-    needLogin: false,
+    needLogin: true,
   },
   { path: "/login", element: LoginPage, needLogin: false },
 ];
