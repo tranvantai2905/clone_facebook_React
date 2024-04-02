@@ -14,9 +14,14 @@ export const AppContext = createContext<AppContextTyp>({
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const loggedIn = useMemo(() => user !== null, [user]);
+
   const login = (userI: User) => {
-    if (user !== null) {
+    if (user == null) {
       setUser(userI);
+
+      return true;
+    } else {
+      return false;
     }
   };
   const logout = () => {

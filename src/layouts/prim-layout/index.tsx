@@ -8,7 +8,7 @@ interface LayoutProps {
 const PrimLayout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <nav className="w-ful h-14">
+      <nav className="w-ful h-14 bg-slate-50">
         <SearchGroup />
         <MainNavigatorGroup />
         <MenuGroup />
