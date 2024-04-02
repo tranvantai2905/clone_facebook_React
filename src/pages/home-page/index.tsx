@@ -6,12 +6,15 @@ const HomePage = () => {
       <div className="grid bg-slate-50 lg:grid-cols-5">
         <Sidebar
           playlists={playlists}
-          className="sticky left-0 top-14 z-0 hidden h-full lg:block"
+          className="sticky top-10 hidden w-[340px] self-start ease-in-out lg:block"
         />
-        <div className="col-span-3 flex h-[5000px] justify-center">
-          Main Content
+        <div className="col-span-3 col-start-2 flex justify-center">
+          <div className="h-[3000px] w-full bg-red-600"></div>
         </div>
-        <Sidebar playlists={playlists} className="hidden lg:block" />
+        <Sidebar
+          playlists={playlists}
+          className="sticky top-10 hidden w-[340px] self-start duration-1000 ease-in-out lg:block"
+        />
       </div>
     </>
   );
