@@ -3,13 +3,15 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
 interface AvatarProps {
   src?: string;
+  className?: string;
 }
-const Avatar = ({ src }: AvatarProps) => {
+const Avatar = ({ src, className }: AvatarProps) => {
   return (
-    <AvatarPrime className="h-6 w-6">
+    <AvatarPrime className={cn("h-6 w-6", className)}>
       {src ? (
         <AvatarImage src={src} alt="@shadcn" />
       ) : (
