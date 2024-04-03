@@ -20,7 +20,7 @@ const Reel = ({ to, reel }: ReelProps) => {
             className="rounded-lg object-cover object-center transition duration-200 ease-in group-hover:scale-105"
           />
           <div className="absolute bottom-3 left-3 w-full">
-            <p className="text-xs font-semibold text-white">Tr Thị Minh Ngọc</p>
+            <p className="text-xs font-semibold text-white">{reel.name}</p>
           </div>
           <div className="pointer-events-none absolute inset-0 z-10 hidden opacity-25 transition duration-200 ease-in group-hover:block group-hover:bg-slate-500"></div>
         </CardContent>
