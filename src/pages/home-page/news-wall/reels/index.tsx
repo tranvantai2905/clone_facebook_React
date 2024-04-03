@@ -23,7 +23,7 @@ const Reels = () => {
       </CarouselItem>
     ));
   return (
-    <div className="mt-5 w-[715px] px-16">
+    <div className="mt-5 w-[715px] px-8">
       <Carousel
         opts={{
           align: "start",
