@@ -18,6 +18,8 @@ import {
 } from "@/components/custom/navigation-menu";
 import Avatar from "@/components/custom/avatar";
 import Icon from "@/shared/icon";
+import { useInfo } from "@/pages/shared/custom-hooks";
+import { Info } from "@/pages/shared/custom-hooks/_types";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -58,6 +60,7 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export function NavigationMenuDemo() {
+  const [info] = useInfo() as [Info];
   return (
     <CustomNavigationMenu>
       <NavigationMenuList>
@@ -135,7 +138,7 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>
-            <Avatar />
+            <Avatar src={info?.src} />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">

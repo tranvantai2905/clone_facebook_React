@@ -1,5 +1,5 @@
-import { AppContext } from "@/AppContext";
-import { AppContextTyp } from "@/AppContext/type";
+import { AppContext } from "@/app-context";
+import { AppContextTyp } from "@/app-context/type";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useContext } from "react";

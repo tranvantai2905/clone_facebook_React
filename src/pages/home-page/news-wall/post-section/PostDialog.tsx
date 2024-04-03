@@ -23,7 +23,7 @@ const PostDialog = () => {
             variant="ghost"
             className="flex w-full justify-start rounded-full bg-slate-100"
           >
-            <p>{`What's on your mind,${info?.username} ?`}</p>
+            <p>{`What's on your mind, ${info?.username} ?`}</p>
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
