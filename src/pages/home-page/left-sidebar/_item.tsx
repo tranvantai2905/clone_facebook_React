@@ -1,4 +1,4 @@
-import { Item } from "../shared/item";
+import { Item } from "../shared/SideBarItem";
 
 const item_list: Item[] = [
   { text: "Friend", icon_name: "users-round" },

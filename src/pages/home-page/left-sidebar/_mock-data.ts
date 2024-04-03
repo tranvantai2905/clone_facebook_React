@@ -1,9 +1,3 @@
-import { useEffect, useState } from "react";
-
-export type ShortCut = {
-  src: string;
-  text: string;
-};
 const mockShortCut = [
   {
     src: "https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/228555764_4919891244704647_1106668722345775211_n.jpg?stp=c23.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEN0Q8egj1ihkReYKRbBFxAr5E_UNO0wOGvkT9Q07TA4d4mEy8kR2BkXznVPyW1AwJvBsAuUKEkTIM5kgCAeyd5&_nc_ohc=6Ee6h5wLPREAX_D5OjV&_nc_ht=scontent.fsgn8-4.fna&oh=00_AfCh63lwxTi8TU_ekZE_J8a_ywzxp-nZTwy13J9aEweqUg&oe=66117D2C",
@@ -22,11 +16,5 @@ const mockShortCut = [
     text: "AUTOBOT",
   },
 ];
-const useShortCutSidebar = () => {
-  const [shortCuts, setShortCuts] = useState<ShortCut[] | null>(null);
-  useEffect(() => {
-    setShortCuts(mockShortCut);
-  }, []);
-  return [shortCuts, setShortCuts];
-};
-export { useShortCutSidebar };
+
+export { mockShortCut };

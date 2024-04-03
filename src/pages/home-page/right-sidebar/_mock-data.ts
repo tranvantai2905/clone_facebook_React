@@ -1,32 +1,5 @@
-import { useEffect, useState } from "react";
+import { Status } from "./_types";
 
-export type Page = {
-  src: string;
-  text: string;
-};
-const mockPages = [
-  {
-    src: "https://scontent.fhan4-6.fna.fbcdn.net/v/t39.30808-1/369171962_1440244773493479_7286616473499390583_n.jpg?stp=c0.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG9BUZa1rPxhkgN8v0meeZ-zgPaDNC8GMjOA9oM0LwYyNZvhTnqWKKPMhcwd0JmwhPPMfHhgZvzMCcV2xSVmbTF&_nc_ohc=6ut8dJk5ID0AX_SWG9_&_nc_ht=scontent.fhan4-6.fna&oh=00_AfBAqLVtYifbmYp1eCFQxpuMuC5Jt5Pu-DZbISRxSLtJ_w&oe=6611BA45",
-    text: "Learn Chatbot",
-  },
-];
-const usePages = () => {
-  const [pages, setPages] = useState<Page[] | null>(null);
-  useEffect(() => {
-    setPages(mockPages);
-  }, []);
-  return [pages, setPages];
-};
-
-export enum Status {
-  Online = "Online",
-  JustNow = "JustNow",
-}
-export type OnlineUser = {
-  src: string;
-  name: string;
-  status: Status;
-};
 const mockOnlineUsers = [
   {
     src: "https://scontent.fhan4-3.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE1ghSy52dCwMeQRzU21a7Xso2H55p0AlGyjYfnmnQCUQ_9a_VDobRwA73etHoAnaxbOPaqH1V2iVspH_XXZLNy&_nc_ohc=q4OFSr5xNooAX9dHH_o&_nc_ht=scontent.fhan4-3.fna&oh=00_AfC1xr8Hfj2zZzHExJj2tBnTXrEC72wj5hKMbnRlxdv5bw&oe=66337138",
@@ -80,12 +53,11 @@ const mockOnlineUsers = [
   },
 ];
 
-const useOnlineUsers = () => {
-  const [users, setUsers] = useState<OnlineUser[] | null>(null);
-  useEffect(() => {
-    setUsers(mockOnlineUsers);
-  }, []);
-  return [users, setUsers];
-};
+const mockPages = [
+  {
+    src: "https://scontent.fhan4-6.fna.fbcdn.net/v/t39.30808-1/369171962_1440244773493479_7286616473499390583_n.jpg?stp=c0.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG9BUZa1rPxhkgN8v0meeZ-zgPaDNC8GMjOA9oM0LwYyNZvhTnqWKKPMhcwd0JmwhPPMfHhgZvzMCcV2xSVmbTF&_nc_ohc=6ut8dJk5ID0AX_SWG9_&_nc_ht=scontent.fhan4-6.fna&oh=00_AfBAqLVtYifbmYp1eCFQxpuMuC5Jt5Pu-DZbISRxSLtJ_w&oe=6611BA45",
+    text: "Learn Chatbot",
+  },
+];
 
-export { usePages, useOnlineUsers };
+export { mockOnlineUsers, mockPages };

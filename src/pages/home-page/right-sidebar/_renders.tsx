@@ -3,12 +3,13 @@ import {
   SideBarItemWithIcon,
   SideBarItemWithImage,
   SideBarItemWithUser,
-} from "../shared/item";
+} from "../shared/SideBarItem";
 import Icon from "@/shared/icon";
-import { page_action_list } from "./item";
-import Actions from "./actions";
-import { OnlineUser, Page } from "./custom-hook";
-import { CustomTooltip } from "../shared/custom-tooltip";
+import { page_action_list } from "./_item";
+import Actions from "./Actions";
+
+import { CustomTooltip } from "../shared/CustomTooltip";
+import { OnlineUser, Page } from "./_types";
 
 const renderActions = (actions: Item[]) =>
   actions.map((action) => (

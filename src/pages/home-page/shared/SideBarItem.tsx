@@ -4,8 +4,9 @@ import { cva } from "class-variance-authority";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
-import { Status } from "../right-sidebar/custom-hook";
+
 import { Button } from "@/components/ui/button";
+import { Status } from "../right-sidebar/_types";
 
 export type Item = {
   text: string;

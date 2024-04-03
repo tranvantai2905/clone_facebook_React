@@ -1,4 +1,4 @@
-import { Item } from "../shared/item";
+import { Item } from "../shared/SideBarItem";
 
 const page_action_list: Item[] = [
   { text: "Switch to page", icon_name: "circle-user" },

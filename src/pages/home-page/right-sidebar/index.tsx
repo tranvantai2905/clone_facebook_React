@@ -1,13 +1,22 @@
 import { cn } from "@/lib/utils";
 
-import { OnlineUser, Page, usePages, useOnlineUsers } from "./custom-hook";
-import { renderPages, renderOnlineUsers } from "./renders";
+import PageSection from "./PageSection";
+import OnlineUserSection from "./OnlineUserSection";
+import { ReactNode } from "react";
 
 interface RightSideBarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function RightSideBar({ className }: RightSideBarProps) {
-  const [pages] = usePages() as [Page[]];
-  const [onlineUser] = useOnlineUsers() as [OnlineUser[]];
+  const sections = [<PageSection />, <OnlineUserSection />];
+
+  const renderSection = (sections: ReactNode[]) =>
+    sections.map((section) => (
+      <div className="py-2 pl-3">
+        <div className="space-y-1">{section}</div>
+        <hr></hr>
+      </div>
+    ));
+
   return (
     <div
       className={cn(
@@ -15,15 +24,7 @@ export function RightSideBar({ className }: RightSideBarProps) {
         className,
       )}
     >
-      <div className="space-y-4 py-4">
-        <div className="py-2 pl-3">
-          <div className="space-y-1">{renderPages(pages)}</div>
-        </div>
-        <hr></hr>
-        <div className="py-2 pl-3">
-          <div className="space-y-1">{renderOnlineUsers(onlineUser)}</div>
-        </div>
-      </div>
+      <div className="space-y-4 py-4">{renderSection(sections)}</div>
     </div>
   );
 }
