@@ -1,6 +1,8 @@
 export type User = {
   email: string;
-  password: string;
+  avatar_url?: string;
+  username?: string;
+  password?: string;
 };
 export type AppContextTyp = {
   user: User | null;

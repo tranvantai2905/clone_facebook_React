@@ -1,19 +1,10 @@
-import Post from "./post";
+import { usePosts } from "./_custom-hooks";
+import { renderPosts } from "./_renders";
+import { PostTyp } from "./_types";
 
 const News = () => {
-  return (
-    <>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </>
-  );
+  const [posts] = usePosts() as [PostTyp[]];
+  return <>{renderPosts(posts)}</>;
 };
 
 export default News;
