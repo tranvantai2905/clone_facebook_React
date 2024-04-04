@@ -1,6 +1,6 @@
 import { createContext, ReactNode, FC, useState } from "react";
 import { ChatContextTyp } from "./_types"; // Ensure consistent naming
-import { OnlineUser, Status } from "@/pages/home-page/right-sidebar/_types";
+import { OnlineUser } from "@/pages/home-page/right-sidebar/_types";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -37,9 +37,9 @@ const ChatProvider: FC<AppProviderProps> = ({ children }) => {
       }
 
       if (selected_users.length === maxUsers) {
-        setUsers((curr) => [...curr.slice(1), user]);
+        setUsers((curr) => [user, ...curr.slice(1)]);
       } else {
-        setUsers((curr) => [...curr, user]);
+        setUsers((curr) => [user, ...curr]);
       }
       return true;
     } else {

@@ -7,12 +7,13 @@ import ChatHeader from "./chat-header";
 import ChatMessages from "./chat-message";
 import ChatActions from "./chat-actions";
 import { ChatBoxContext } from "./chat-context";
+import { memo } from "react";
 
 interface ChatBoxProps {
   user: OnlineUser;
 }
 
-const ChatBox = ({ user }: ChatBoxProps) => {
+const ChatBox = memo(({ user }: ChatBoxProps) => {
   // console.log(user);
   return (
     <ChatBoxContext.Provider value={{ user }}>
@@ -29,6 +30,6 @@ const ChatBox = ({ user }: ChatBoxProps) => {
       </div>
     </ChatBoxContext.Provider>
   );
-};
+});
 
 export default ChatBox;

@@ -11,9 +11,9 @@ interface FromMessageProps {
 
 const ToMessage = ({ message }: ToMessageProps) => {
   return (
-    <div className="mb-2 flex w-full flex-col items-end">
-      <div className="flex w-4/5 justify-end space-y-1  rounded-tr-none text-right">
-        <p className="w-fit rounded-2xl rounded-tr-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white">
+    <div className="mb-2 flex w-full flex-col items-start">
+      <div className="flex w-4/5 justify-start space-y-1  rounded-tr-none text-right">
+        <p className="w-fit rounded-2xl rounded-tl-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white">
           {message.message}
         </p>
       </div>
