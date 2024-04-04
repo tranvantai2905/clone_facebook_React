@@ -89,6 +89,14 @@ const mockOnlineUsers: OnlineUser[] = [
     email: "",
     status: Status.Online,
   },
+  {
+    avatar_url:
+      "https://scontent.fhan4-5.fna.fbcdn.net/v/t39.30808-1/416250307_1958546661214586_5464901500962864542_n.jpg?stp=dst-jpg_p100x100&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHwOUrJ3FOq87A4gaVtV2vpGXT_R7Qp-YcZdP9HtCn5h6vTTQcsR64AhDVxEt0uehTwiUXLPE31rzUq2pSP7EzS&_nc_ohc=7QNE340bF5wAb7YnxHj&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fhan4-5.fna&oh=00_AfDWquuYC03dt1AQgsmhulIhXpo1NLGQIWVl_IBw9PdphA&oe=6614308D",
+    username: "Lê Quang PHú",
+    url: "",
+    email: "",
+    status: Status.JustNow,
+  },
 ];
 
 const mockPages: Page[] = [

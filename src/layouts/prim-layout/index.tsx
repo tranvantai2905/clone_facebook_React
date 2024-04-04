@@ -11,12 +11,12 @@ const PrimLayout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <ChatProvider>
-        <nav className="w-ful fixed z-50 h-14 bg-slate-50">
+        <nav className="sticky top-0 z-50 flex h-14 w-full items-center justify-between overflow-visible bg-slate-50">
           <SearchGroup />
           <MainNavigatorGroup />
           <MenuGroup />
         </nav>
-        <div className="mt-14">{children}</div>
+        <div className="-mt-1">{children}</div>
         <ChatBoxRender />
       </ChatProvider>
     </>

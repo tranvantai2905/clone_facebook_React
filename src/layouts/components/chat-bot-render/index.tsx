@@ -6,7 +6,7 @@ import { useContext } from "react";
 const ChatBoxRender = () => {
   const { selected_users } = useContext(ChatContext) as ChatContextTyp;
   return (
-    <div className="fixed bottom-0 right-32 flex justify-end gap-5">
+    <div className="sticky bottom-0 mr-16 flex justify-end gap-5">
       {renderChatBox(selected_users)}
     </div>
   );

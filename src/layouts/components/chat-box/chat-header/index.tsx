@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-import { useChatBoxContext } from "../chat-context";
 import HeaderActions from "./header-actions";
 import HeaderInfo from "./header-info";
 

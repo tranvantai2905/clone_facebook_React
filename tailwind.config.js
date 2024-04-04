@@ -79,5 +79,6 @@ module.exports = {
     require("tailwindcss-animate"),
     require("tailwindcss"),
     require("autoprefixer"),
+    require("tailwind-scrollbar"),
   ],
 };

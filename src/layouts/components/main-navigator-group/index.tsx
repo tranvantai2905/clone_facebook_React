@@ -34,7 +34,7 @@ const MainNavigatorGroup = () => {
     ));
   };
   return (
-    <div className="fixed top-0 flex hidden w-full justify-center bg-white text-center md:flex">
+    <div className="absolute bottom-0 left-0 right-0 top-0 hidden w-full justify-center bg-white text-center md:flex">
       <NavigationMenu>
         <NavigationMenuList>{renderNavigationItem()}</NavigationMenuList>
       </NavigationMenu>
