@@ -1,45 +1,56 @@
 import { createContext, ReactNode, FC, useState } from "react";
-import { ChatContextTyp, SelectedUser } from "./types"; // Ensure consistent naming
+import { ChatContextTyp } from "./_types"; // Ensure consistent naming
+import { OnlineUser, Status } from "@/pages/home-page/right-sidebar/_types";
 
 interface AppProviderProps {
   children: ReactNode;
 }
 export const ChatContext = createContext<ChatContextTyp>({
-  users: [],
+  selected_users: [],
   maxUsers: 3,
   addUser: () => true,
   removeUser: () => true,
 });
 
-const MAXUSERS = 3;
+const MAX_USERS = 3;
 
 const ChatProvider: FC<AppProviderProps> = ({ children }) => {
-  const [users, setUsers] = useState<SelectedUser[]>([
-    { name: "Tran Van Tai" },
+  const [selected_users, setUsers] = useState<OnlineUser[]>([
+    // {
+    //   username: "Tran Van Tai",
+    //   email: "",
+    //   status: Status.Online,
+    //   avatar_url: "",
+    // },
   ]);
-  const maxUsers = MAXUSERS;
-  const addUser = (user: SelectedUser) => {
+  const maxUsers = MAX_USERS;
+
+  const addUser = (user: OnlineUser) => {
     if (user !== null) {
-      if (maxUsers == users.length) {
-        setUsers((curr) => {
-          curr = curr.slice(1);
-          curr.push(user);
-          return curr;
-        });
+      if (
+        selected_users.some(
+          (existingUser) => existingUser.username === user.username,
+        )
+      ) {
+        console.warn(`User "${user.username}" is already selected.`);
+        return false;
+      }
+
+      if (selected_users.length === maxUsers) {
+        setUsers((curr) => [...curr.slice(1), user]);
+      } else {
+        setUsers((curr) => [...curr, user]);
       }
       return true;
     } else {
       return false;
     }
   };
-  const removeUser = (user: SelectedUser) => {
+  const removeUser = (user: OnlineUser) => {
     if (user !== null) {
-      if (maxUsers == users.length) {
-        setUsers((curr) => {
-          curr = curr.filter((iUser) => user.name !== iUser.name);
-          return curr;
-        });
-      }
+      setUsers((curr) =>
+        curr.filter((existingUser) => existingUser.username !== user.username),
+      );
       return true;
     } else {
       return false;
@@ -47,7 +58,9 @@ const ChatProvider: FC<AppProviderProps> = ({ children }) => {
   };
 
   return (
-    <ChatContext.Provider value={{ users, maxUsers, addUser, removeUser }}>
+    <ChatContext.Provider
+      value={{ selected_users, maxUsers, addUser, removeUser }}
+    >
       {children}
     </ChatContext.Provider>
   );

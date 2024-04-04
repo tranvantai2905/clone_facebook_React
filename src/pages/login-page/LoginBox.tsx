@@ -1,5 +1,5 @@
 import { AppContext } from "@/app-context";
-import { AppContextTyp } from "@/app-context/type";
+import { AppContextTyp, LoginUser } from "@/app-context/type";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useContext } from "react";
@@ -22,23 +22,24 @@ const LoginSchema = Yup.object().shape({
 const LoginBox = () => {
   const { login } = useContext(AppContext) as AppContextTyp;
   const navigator = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-    },
+    } as LoginUser,
     validationSchema: LoginSchema,
-    onSubmit: (values, actions) => {
+    onSubmit: (loginValues, actions) => {
       setTimeout(() => {
         actions.setSubmitting(false);
-        handleLogin(values);
+        handleLogin(loginValues);
         navigator("/home");
       }, 2000);
     },
   });
-  const handleLogin = (input: { email: string; password: string }) => {
-    const email = input["email"];
-    const password = input["password"];
+
+  const handleLogin = (input: LoginUser) => {
+    const { email, password } = input;
     const info = { email, password };
     login(info);
     toast.success("Login succeeded", {

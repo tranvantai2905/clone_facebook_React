@@ -1,10 +1,10 @@
+import { User } from "@/app-context/type";
+
 export enum Status {
   Online = "Online",
   JustNow = "JustNow",
 }
-export type OnlineUser = {
-  src: string;
-  name: string;
+export type OnlineUser = User & {
   status: Status;
 };
 

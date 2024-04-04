@@ -1,19 +1,21 @@
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-slate-300 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+  "group inline-flex w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-slate-300 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
 );
 
 interface SideBarItemWithIconProps {
   startIcon: ReactNode;
-  text: string;
+  text?: string;
   className?: string;
   text_className?: string;
+  onClick?: () => void;
 }
-const IconButton = ({
+const IconLink = ({
   startIcon,
   text,
   className,
@@ -34,10 +36,41 @@ const IconButton = ({
         )}
       >
         {startIcon}
-        <p className={cn("text-center text-sm", text_className)}>{text}</p>
+        {text && (
+          <p className={cn("text-center text-sm", text_className)}>{text}</p>
+        )}
       </div>
     </Link>
   );
 };
 
-export { IconButton };
+const IconButton = ({
+  startIcon,
+  text,
+  className,
+  text_className,
+  onClick,
+}: SideBarItemWithIconProps) => {
+  return (
+    <Button
+      variant="ghost"
+      className="flex w-full justify-center rounded-lg"
+      onClick={onClick}
+    >
+      <div
+        className={cn(
+          "flex items-center justify-center gap-3 p-1",
+          "h-8 w-full md:min-w-8",
+          className,
+        )}
+      >
+        {startIcon}
+        {text && (
+          <p className={cn("text-center text-sm", text_className)}>{text}</p>
+        )}
+      </div>
+    </Button>
+  );
+};
+
+export { IconButton, IconLink };

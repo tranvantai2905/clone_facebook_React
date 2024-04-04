@@ -10,6 +10,7 @@ import Actions from "./Actions";
 
 import { CustomTooltip } from "../shared/CustomTooltip";
 import { OnlineUser, Page } from "./_types";
+import OnlineUserItem from "./OnlineUserItem";
 
 const renderActions = (actions: Item[]) =>
   actions.map((action) => (
@@ -51,12 +52,6 @@ const renderPages = (pages: Page[]) => {
   }
 };
 
-const renderOnlineUser = (user: OnlineUser) => (
-  <div>
-    <SideBarItemWithUser src={user.src} text={user.name} status={user.status} />
-  </div>
-);
-
 const renderOnlineUsers = (users: OnlineUser[]) => {
   if (users) {
     return (
@@ -79,7 +74,9 @@ const renderOnlineUsers = (users: OnlineUser[]) => {
           </div>
         </div>
         <div className="grid grid-flow-row grid-cols-1 gap-2 px-3 py-2">
-          {users.map((user) => renderOnlineUser(user))}
+          {users.map((user) => (
+            <OnlineUserItem user={user} />
+          ))}
         </div>
       </div>
     );

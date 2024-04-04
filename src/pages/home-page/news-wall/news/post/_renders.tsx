@@ -5,36 +5,46 @@ import { timeSince } from "@/utils";
 import Icon from "@/shared/icon";
 import { IconButton } from "@/pages/home-page/shared/IonButton";
 import { Button } from "@/components/ui/button";
+import { HeaderStrategyTyp } from "./_types";
 
+const headerStrategy: HeaderStrategyTyp = {
+  primary: (post: PostTyp) => (
+    <div className="flex flex-col gap-1">
+      <Link to="">
+        <p className="text-sm font-bold">{post.post_user.username}</p>
+      </Link>
+      <div className="flex items-center gap-2 text-xs">
+        <Link to="">{timeSince(post.date_post)}</Link>
+        ·
+        <Icon name="users-round" className="h-3 w-3" />
+      </div>
+    </div>
+  ),
+  page: (post: PagePostTyp) => (
+    <div className="flex flex-col gap-1">
+      <Link to="">
+        <p className="text-sm font-bold">{post.page?.page_name}</p>
+      </Link>
+      <div className="flex items-center gap-2 text-xs">
+        <Link to="">
+          <p>{post.post_user.username}</p>
+        </Link>
+        ·<Link to="">{timeSince(post.date_post)}</Link>
+        ·
+        <Icon name="users-round" className="h-3 w-3" />
+      </div>
+    </div>
+  ),
+};
+function isPagePostTyp(post: PostTyp | PagePostTyp): post is PagePostTyp {
+  return typeof post.page !== "undefined"; // Check for existence of the 'page' property
+}
 const renderHeaderPost = (post: PostTyp | PagePostTyp) => (
   <div className="flex items-center gap-3">
     <Avatar className="h-10 w-10" />
-    {post.page ? (
-      <div className="flex flex-col gap-1">
-        <Link to="">
-          <p className="text-sm font-bold">{post.page?.page_name}</p>
-        </Link>
-        <div className="flex items-center gap-2 text-xs">
-          <Link to="">
-            <p>{post.post_user.username}</p>
-          </Link>
-          ·<Link to="">{timeSince(post.date_post)}</Link>
-          ·
-          <Icon name="users-round" className="h-3 w-3" />
-        </div>
-      </div>
-    ) : (
-      <div className="flex flex-col gap-1">
-        <Link to="">
-          <p className="text-sm font-bold">{post.post_user.username}</p>
-        </Link>
-        <div className="flex items-center gap-2 text-xs">
-          <Link to="">{timeSince(post.date_post)}</Link>
-          ·
-          <Icon name="users-round" className="h-3 w-3" />
-        </div>
-      </div>
-    )}
+    {isPagePostTyp(post)
+      ? headerStrategy.page(post)
+      : headerStrategy.primary(post)}
   </div>
 );
 const renderContentPost = (post: PostTyp | PagePostTyp) => (

@@ -14,7 +14,7 @@ export type Item = {
 };
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-slate-300 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+  "inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-slate-300 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
 );
 
 interface SideBarItemWithIconProps {
@@ -89,6 +89,7 @@ interface SideBarItemWithUserProps {
   text: string;
   className?: string;
   status?: Status;
+  onClick: () => void;
 }
 
 const SideBarItemWithUser = ({
@@ -96,12 +97,13 @@ const SideBarItemWithUser = ({
   text,
   className,
   status,
+  onClick,
 }: SideBarItemWithUserProps) => {
   return (
     <Button
+      onClick={onClick}
       className={cn(
         navigationMenuTriggerStyle(),
-        "group",
         "rounded-sm",
         "bg-slate-50",
         "h-13",

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, FC, useState, useMemo } from "react";
-import { AppContextTyp, User } from "./type"; // Ensure consistent naming
-
+import { AppContextTyp, LoginUser, User } from "./type"; // Ensure consistent naming
+import HttpService from "@/api";
 interface AppProviderProps {
   children: ReactNode;
 }
@@ -14,10 +14,13 @@ export const AppContext = createContext<AppContextTyp>({
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const loggedIn = useMemo(() => user !== null, [user]);
-
-  const login = (userI: User) => {
+  const getUserInfo = (loginUser: LoginUser) => {
+    return HttpService.getUserInfo(loginUser);
+  };
+  const login = (loginUser: LoginUser) => {
     if (user == null) {
-      setUser(userI);
+      const userInfo = getUserInfo(loginUser);
+      setUser(userInfo);
 
       return true;
     } else {

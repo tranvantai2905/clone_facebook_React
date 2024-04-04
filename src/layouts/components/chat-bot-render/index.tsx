@@ -1,11 +1,15 @@
 import { ChatContext } from "@/layouts/chat-context";
-import { ChatContextTyp } from "@/layouts/chat-context/types";
+import { ChatContextTyp } from "@/layouts/chat-context/_types";
 import { renderChatBox } from "@/layouts/prim-layout/_render";
 import { useContext } from "react";
 
 const ChatBoxRender = () => {
-  const { users } = useContext(ChatContext) as ChatContextTyp;
-  return <>{renderChatBox(users)}</>;
+  const { selected_users } = useContext(ChatContext) as ChatContextTyp;
+  return (
+    <div className="fixed bottom-0 right-32 flex justify-end gap-5">
+      {renderChatBox(selected_users)}
+    </div>
+  );
 };
 
 export default ChatBoxRender;

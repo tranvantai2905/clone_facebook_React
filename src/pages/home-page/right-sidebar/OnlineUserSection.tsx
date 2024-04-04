@@ -1,5 +1,6 @@
-import { OnlineUser, useOnlineUsers } from "./_custom-hook";
+import { useOnlineUsers } from "./_custom-hook";
 import { renderOnlineUsers } from "./_renders";
+import { OnlineUser } from "./_types";
 
 const OnlineUserSection = () => {
   const [onlineUser] = useOnlineUsers() as [OnlineUser[]];
