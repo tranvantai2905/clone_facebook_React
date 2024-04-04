@@ -1,16 +1,20 @@
 import { ChatContext } from "@/layouts/chat-context";
 import { IconButton } from "@/pages/home-page/shared/IonButton";
 import Icon from "@/shared/icon";
-import { useContext, useMemo } from "react";
+import { useCallback, useContext, useMemo } from "react";
 import { useChatBoxContext } from "../../chat-context";
 import { OnlineUser } from "@/pages/home-page/right-sidebar/_types";
 
 const HeaderActions = () => {
   const { removeUser } = useContext(ChatContext);
+  const removeUserMemo = useCallback(
+    (user: OnlineUser) => removeUser(user),
+    [removeUser],
+  );
   const { user } = useChatBoxContext();
   const userMemo = useMemo(() => user, [user]);
   const handleCloseBox = () => {
-    removeUser(userMemo as OnlineUser);
+    removeUserMemo(userMemo as OnlineUser);
   };
   return (
     <div className="grid w-[30%] grid-flow-col grid-cols-4 justify-end">
