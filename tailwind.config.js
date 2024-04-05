@@ -24,6 +24,9 @@ export const theme = {
     },
   },
   extend: {
+    transitionProperty: {
+      multiple: "width , height , backgroundColor , border-radius",
+    },
     colors: {
       border: "hsl(var(--border))",
       input: "hsl(var(--input))",

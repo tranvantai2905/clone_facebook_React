@@ -16,6 +16,21 @@ const mockMessages: MessageTyp[] = [
     message: "I love u <3",
     date: new Date(),
   },
+  {
+    type: WhoSend.Sender,
+    message: "I love u <3",
+    date: new Date(),
+  },
+  {
+    type: WhoSend.Sender,
+    message: "I love u <3",
+    date: new Date(),
+  },
+  {
+    type: WhoSend.Sender,
+    message: "I love u <3",
+    date: new Date(),
+  },
 ];
 
 export { mockMessages };

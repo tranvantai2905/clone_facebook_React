@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -45,35 +45,45 @@ const IconLink = ({
   );
 };
 
-const IconButton = ({
-  startIcon,
-  text,
-  className,
-  text_className,
-  onClick,
-}: SideBarItemWithIconProps) => {
-  return (
-    <Button
-      variant="ghost"
-      className="flex w-full justify-center rounded-lg"
-      onClick={onClick}
-    >
-      <motion.div
-        whileHover={{ scale: 1.1, color: "#083344" }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        className={cn(
-          "flex items-center justify-center gap-3 p-1",
-          "h-8 w-full md:min-w-8",
-          className,
-        )}
+const IconButton = memo(
+  ({
+    startIcon,
+    text,
+    className,
+    text_className,
+    onClick,
+  }: SideBarItemWithIconProps) => {
+    return (
+      <Button
+        variant="ghost"
+        className="flex w-full justify-center rounded-lg"
+        onClick={onClick}
       >
-        {startIcon}
-        {text && (
-          <p className={cn("text-center text-sm", text_className)}>{text}</p>
-        )}
-      </motion.div>
-    </Button>
-  );
-};
+        <motion.div
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            rotate: 0,
+            scale: 1,
+          }}
+          exit={{ opacity: 0, display: "hidden" }}
+          whileHover={{ scale: 1.05, color: "#083344" }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className={cn(
+            "flex items-center justify-center gap-3 p-1",
+            "h-8 w-full md:min-w-8",
+            className,
+          )}
+        >
+          {startIcon}
+          {text && (
+            <p className={cn("text-center text-sm", text_className)}>{text}</p>
+          )}
+        </motion.div>
+      </Button>
+    );
+  },
+);
 
 export { IconButton, IconLink };
