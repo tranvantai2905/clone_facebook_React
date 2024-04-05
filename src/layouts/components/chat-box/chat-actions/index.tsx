@@ -1,11 +1,11 @@
 import CustomInput from "@/components/custom/input";
 import { IconButton } from "@/pages/home-page/shared/IonButton";
 import Icon from "@/shared/icon";
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ChatInputs from "./chat-inputs";
 
 const ChatActions = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const [hadMessage, setHadMessage] = useState<boolean>();
   console.log(inputRef.current?.value, "ChatActions re-render");
   const handleSend = () => {

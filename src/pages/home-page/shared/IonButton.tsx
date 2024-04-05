@@ -56,7 +56,7 @@ const IconButton = memo(
     return (
       <Button
         variant="ghost"
-        className="flex w-full justify-center rounded-lg"
+        className="flex w-full justify-center rounded-lg p-0"
         onClick={onClick}
       >
         <motion.div

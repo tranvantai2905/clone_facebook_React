@@ -1,22 +1,28 @@
 import CustomInput from "@/components/custom/input";
+import { Textarea } from "@/components/ui/textarea";
 import { IconButton } from "@/pages/home-page/shared/IonButton";
 import Icon from "@/shared/icon";
-import { forwardRef, useState } from "react";
+import { forwardRef, memo, useEffect, useMemo, useState } from "react";
+import ChatEmotionPicker from "./chat-emotion-picker";
 
 interface ChatInputProps {
   setHadMessage: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 }
-const ChatInputs = forwardRef<HTMLInputElement, ChatInputProps>(
+const ChatInputs = forwardRef<HTMLTextAreaElement, ChatInputProps>(
   ({ setHadMessage }, ref) => {
     const [message, setMessage] = useState("");
     const [expand, setExpand] = useState(false);
 
-    const handleChangeMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (e.target.value !== "" && message == "") setHadMessage(true);
       else if (e.target.value == "") setHadMessage(false);
 
       setMessage(e.target.value);
     };
+    useEffect(() => {
+      if (message !== "") setExpand(true);
+      else setExpand(false);
+    }, [message]);
     return (
       <div className="col-span-8 grid grid-cols-8">
         {!expand && (
@@ -38,21 +44,22 @@ const ChatInputs = forwardRef<HTMLInputElement, ChatInputProps>(
           />
         )}
         <div
-          className={`relative flex items-center  ${expand ? "col-span-8" : "col-span-5"}`}
+          className={`relative flex items-start  ${expand ? "col-span-8" : "col-span-5"}`}
         >
-          <CustomInput
-            className={`rounded-full pr-10 focus:outline-none`}
+          <Textarea
+            rows={1}
+            className={`resize-y rounded-xl scrollbar-none focus:outline-none`}
             onFocus={() => setExpand(true)}
             onBlur={() => setExpand(false)}
             value={message}
             onChange={(e) => handleChangeMessage(e)}
             ref={ref}
           />
-          <Icon name="smile" className="-ml-7 h-5 w-5" />
+          <ChatEmotionPicker setMessage={setMessage} />
         </div>
       </div>
     );
   },
 );
 
-export default ChatInputs;
+export default memo(ChatInputs);
