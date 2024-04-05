@@ -18,11 +18,11 @@ const ToMessage = ({ message, idx }: ToMessageProps) => {
       whileTap={{ scale: 0.95, backgroundColor: "#f1f5f9" }}
       drag="x"
       dragConstraints={{ left: -200, right: 0 }}
-      className="mb-2 flex w-full cursor-pointer flex-col items-start"
+      className="mb-2 flex w-full flex-col items-start"
       key={idx}
     >
       <div className="flex w-4/5 justify-start space-y-1  rounded-tr-none text-right">
-        <p className="w-fit rounded-2xl rounded-tl-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white">
+        <p className=" w-fit cursor-pointer rounded-2xl rounded-tl-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white hover:shadow-md">
           {message.message}
         </p>
       </div>
@@ -45,7 +45,7 @@ const FromMessage = ({ message, idx }: FromMessageProps) => {
       key={idx}
     >
       <div className="flex w-4/5 justify-end space-y-1  rounded-tr-none text-right">
-        <p className="w-fit rounded-2xl rounded-tr-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white">
+        <p className=" w-fit cursor-pointer rounded-2xl rounded-tr-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white hover:shadow-md">
           {message.message}
         </p>
       </div>
