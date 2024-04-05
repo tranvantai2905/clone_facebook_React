@@ -1,17 +1,26 @@
 import { timeSince } from "@/utils";
 import { MessageTyp } from "./_types";
+import { motion } from "framer-motion";
 
 interface ToMessageProps {
   message: MessageTyp;
+  idx: number;
 }
 
 interface FromMessageProps {
   message: MessageTyp;
+  idx: number;
 }
 
-const ToMessage = ({ message }: ToMessageProps) => {
+const ToMessage = ({ message, idx }: ToMessageProps) => {
   return (
-    <div className="mb-2 flex w-full flex-col items-start">
+    <motion.div
+      whileTap={{ scale: 0.95, backgroundColor: "#f1f5f9" }}
+      drag="x"
+      dragConstraints={{ left: -200, right: 0 }}
+      className="mb-2 flex w-full cursor-pointer flex-col items-start"
+      key={idx}
+    >
       <div className="flex w-4/5 justify-start space-y-1  rounded-tr-none text-right">
         <p className="w-fit rounded-2xl rounded-tl-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white">
           {message.message}
@@ -22,14 +31,19 @@ const ToMessage = ({ message }: ToMessageProps) => {
           {timeSince(message.date)}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-const FromMessage = ({ message }: FromMessageProps) => {
-  console.log(message);
+const FromMessage = ({ message, idx }: FromMessageProps) => {
   return (
-    <div className="mb-2 flex w-full flex-col items-end">
+    <motion.div
+      whileTap={{ scale: 0.95, backgroundColor: "#f1f5f9" }}
+      drag="x"
+      dragConstraints={{ left: 0, top: 200, right: 250 }}
+      className="mb-2 flex w-full flex-col items-end rounded-2xl"
+      key={idx}
+    >
       <div className="flex w-4/5 justify-end space-y-1  rounded-tr-none text-right">
         <p className="w-fit rounded-2xl rounded-tr-none bg-blue-500 p-3 pl-5 pr-5 text-sm font-medium leading-none text-white">
           {message.message}
@@ -40,7 +54,7 @@ const FromMessage = ({ message }: FromMessageProps) => {
           {timeSince(message.date)}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

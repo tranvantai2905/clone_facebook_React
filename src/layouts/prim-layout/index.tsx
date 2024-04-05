@@ -16,8 +16,11 @@ const PrimLayout: FC<LayoutProps> = ({ children }) => {
           <MainNavigatorGroup />
           <MenuGroup />
         </nav>
-        <div className="-mt-1">{children}</div>
-        <ChatBoxRender />
+        <div className="relative -mt-1">
+          {children}
+
+          <ChatBoxRender />
+        </div>
       </ChatProvider>
     </>
   );

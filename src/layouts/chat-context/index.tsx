@@ -1,6 +1,6 @@
 import { createContext, ReactNode, FC, useState } from "react";
 import { ChatContextTyp } from "./_types"; // Ensure consistent naming
-import { OnlineUser } from "@/pages/home-page/right-sidebar/_types";
+import { OnlineUserTyp } from "@/pages/home-page/right-sidebar/_types";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -15,17 +15,10 @@ export const ChatContext = createContext<ChatContextTyp>({
 const MAX_USERS = 3;
 
 const ChatProvider: FC<AppProviderProps> = ({ children }) => {
-  const [selected_users, setUsers] = useState<OnlineUser[]>([
-    // {
-    //   username: "Tran Van Tai",
-    //   email: "",
-    //   status: Status.Online,
-    //   avatar_url: "",
-    // },
-  ]);
+  const [selected_users, setUsers] = useState<OnlineUserTyp[]>([]);
   const maxUsers = MAX_USERS;
 
-  const addUser = (user: OnlineUser) => {
+  const addUser = (user: OnlineUserTyp) => {
     if (user !== null) {
       if (
         selected_users.some(
@@ -37,16 +30,17 @@ const ChatProvider: FC<AppProviderProps> = ({ children }) => {
       }
 
       if (selected_users.length === maxUsers) {
-        setUsers((curr) => [user, ...curr.slice(1)]);
+        setUsers((curr) => [...curr.slice(1), user]);
       } else {
-        setUsers((curr) => [user, ...curr]);
+        setUsers((curr) => [...curr, user]);
       }
       return true;
     } else {
       return false;
     }
   };
-  const removeUser = (user: OnlineUser) => {
+  const removeUser = (user: OnlineUserTyp) => {
+    console.log("ChatContext", user, selected_users);
     if (user !== null) {
       setUsers((curr) =>
         curr.filter((existingUser) => existingUser.username !== user.username),

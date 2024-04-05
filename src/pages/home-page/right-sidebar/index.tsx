@@ -20,7 +20,7 @@ export function RightSideBar({ className }: RightSideBarProps) {
   return (
     <div
       className={cn(
-        "sticky top-14 col-span-1 hidden max-h-[900px] self-start overflow-y-scroll pb-12 ease-in-out lg:block",
+        "sticky top-14 col-span-1 hidden max-h-[900px] self-start overflow-y-scroll pb-12 ease-in-out xl:block",
         className,
       )}
     >

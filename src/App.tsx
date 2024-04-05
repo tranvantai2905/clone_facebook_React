@@ -18,7 +18,6 @@ function App() {
           const Element = route.needLogin
             ? withLoggedIn(route.element)
             : withoutLoggedIn(route.element);
-          console.log(Element);
           return (
             <Route
               key={index}

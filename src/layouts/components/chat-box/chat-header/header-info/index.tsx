@@ -1,14 +1,25 @@
 import { useMemo } from "react";
 import { useChatBoxContext } from "../../chat-context";
 import { renderHeaderInfo, renderSkeletonHeaderInfo } from "./_render";
-import { OnlineUser } from "@/pages/home-page/right-sidebar/_types";
+import { OnlineUserTyp } from "@/pages/home-page/right-sidebar/_types";
 
-const HeaderInfo = () => {
-  const { user } = useChatBoxContext();
-  const userMemo = useMemo(() => user, [user]);
+interface HeaderInfoProps {
+  user: OnlineUserTyp;
+}
+const HeaderInfo = ({ user }: HeaderInfoProps) => {
   return user
-    ? renderHeaderInfo(userMemo as OnlineUser)
+    ? renderHeaderInfo(user as OnlineUserTyp)
     : renderSkeletonHeaderInfo();
 };
 
-export default HeaderInfo;
+const HeaderInfoHOC = () => {
+  const { user } = useChatBoxContext();
+  const userMemo = useMemo(() => user, [user]);
+
+  return (
+    <>
+      <HeaderInfo user={userMemo as OnlineUserTyp} />
+    </>
+  );
+};
+export default HeaderInfoHOC;

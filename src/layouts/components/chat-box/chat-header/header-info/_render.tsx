@@ -1,5 +1,5 @@
 import Avatar from "@/components/custom/avatar";
-import { OnlineUser, Status } from "@/pages/home-page/right-sidebar/_types";
+import { OnlineUserTyp, Status } from "@/pages/home-page/right-sidebar/_types";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const renderSkeletonHeaderInfo = () => {
@@ -18,7 +18,7 @@ const renderSkeletonHeaderInfo = () => {
   );
 };
 
-const renderHeaderInfo = (user: OnlineUser) => {
+const renderHeaderInfo = (user: OnlineUserTyp) => {
   return (
     <div className="flex w-[70%] items-center gap-2">
       <div className="relative">

@@ -1,5 +1,5 @@
-import { OnlineUser } from "@/pages/home-page/right-sidebar/_types";
+import { OnlineUserTyp } from "@/pages/home-page/right-sidebar/_types";
 
 export type ChatBoxContextTyp = {
-  user: OnlineUser | null;
+  user: OnlineUserTyp | null;
 };

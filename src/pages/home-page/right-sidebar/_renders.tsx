@@ -9,7 +9,7 @@ import { page_action_list } from "./_item";
 import Actions from "./Actions";
 
 import { CustomTooltip } from "../shared/CustomTooltip";
-import { OnlineUser, Page } from "./_types";
+import { OnlineUserTyp, Page } from "./_types";
 import OnlineUserItem from "./OnlineUserItem";
 
 const renderActions = (actions: Item[]) =>
@@ -52,7 +52,7 @@ const renderPages = (pages: Page[]) => {
   }
 };
 
-const renderOnlineUsers = (users: OnlineUser[]) => {
+const renderOnlineUsers = (users: OnlineUserTyp[]) => {
   if (users) {
     return (
       <div className="space-y-4 py-2">

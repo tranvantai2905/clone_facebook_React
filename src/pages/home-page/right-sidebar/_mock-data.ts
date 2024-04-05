@@ -1,6 +1,6 @@
-import { OnlineUser, Page, Status } from "./_types";
+import { OnlineUserTyp, Page, Status } from "./_types";
 
-const mockOnlineUsers: OnlineUser[] = [
+const mockOnlineUsers: OnlineUserTyp[] = [
   {
     avatar_url:
       "https://scontent.fhan4-3.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE1ghSy52dCwMeQRzU21a7Xso2H55p0AlGyjYfnmnQCUQ_9a_VDobRwA73etHoAnaxbOPaqH1V2iVspH_XXZLNy&_nc_ohc=q4OFSr5xNooAX9dHH_o&_nc_ht=scontent.fhan4-3.fna&oh=00_AfC1xr8Hfj2zZzHExJj2tBnTXrEC72wj5hKMbnRlxdv5bw&oe=66337138",

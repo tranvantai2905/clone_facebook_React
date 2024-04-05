@@ -18,7 +18,10 @@ const Reels = () => {
 
   const renderReel = (reels: ReelTyp[]) =>
     reels?.map((reel, index) => (
-      <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
+      <CarouselItem
+        key={index}
+        className="xs:basis-1/3 sm:basis-1/4 lg:basis-1/4"
+      >
         <Reel reel={reel} />
       </CarouselItem>
     ));

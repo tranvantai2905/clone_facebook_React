@@ -4,7 +4,7 @@ export enum Status {
   Online = "Online",
   JustNow = "JustNow",
 }
-export type OnlineUser = User & {
+export type OnlineUserTyp = User & {
   status: Status;
 };
 

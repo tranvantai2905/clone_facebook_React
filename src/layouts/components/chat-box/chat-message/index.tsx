@@ -3,19 +3,33 @@ import { MessageTyp } from "./_types";
 import { renderMessages } from "./_render";
 import { useChatBoxContext } from "../chat-context";
 import { useMemo } from "react";
+import { OnlineUserTyp } from "@/pages/home-page/right-sidebar/_types";
 
-const ChatMessages = () => {
+interface ChatMessagesProps {
+  user: OnlineUserTyp;
+  messages: MessageTyp[];
+}
+
+const ChatMessages = ({ user, messages }: ChatMessagesProps) => {
+  return (
+    <div className="grid h-80 gap-4 overflow-y-scroll p-2 pb-0 pt-5">
+      {renderMessages(messages)}
+    </div>
+  );
+};
+
+const ChatMessagesHOC = () => {
   const { user } = useChatBoxContext();
-  console.log(user);
   const [messages] = useMessages() as [MessageTyp[]];
+
+  const userMemo = useMemo(() => user, [user]);
   const messagesMemo = useMemo(() => messages, [messages]);
+
   return (
     <>
-      <div className="grid h-80 gap-4 overflow-y-scroll p-2 pb-0 pt-5">
-        {renderMessages(messagesMemo)}
-      </div>
+      <ChatMessages user={userMemo as OnlineUserTyp} messages={messagesMemo} />
     </>
   );
 };
 
-export default ChatMessages;
+export default ChatMessagesHOC;

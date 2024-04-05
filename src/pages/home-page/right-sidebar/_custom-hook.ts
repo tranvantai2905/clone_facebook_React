@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { OnlineUser, Page } from "./_types";
+import { OnlineUserTyp, Page } from "./_types";
 import { mockOnlineUsers, mockPages } from "./_mock-data";
 
 const usePages = () => {
@@ -11,7 +11,7 @@ const usePages = () => {
 };
 
 const useOnlineUsers = () => {
-  const [users, setUsers] = useState<OnlineUser[] | null>(null);
+  const [users, setUsers] = useState<OnlineUserTyp[] | null>(null);
   useEffect(() => {
     setUsers(mockOnlineUsers);
   }, []);
