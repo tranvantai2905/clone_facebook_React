@@ -4,7 +4,7 @@ import {
   SideBarItemWithImage,
 } from "../shared/SideBarItem";
 
-import Icon from "@/shared/icon";
+import Icon from "@/pages/shared/component/icon";
 import { ShortCut } from "./_types";
 import { Info } from "@/pages/shared/custom-hooks/_types";
 

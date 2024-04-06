@@ -1,9 +1,9 @@
-import CustomInput from "@/components/custom/input";
-import { Textarea } from "@/components/ui/textarea";
-import { IconButton } from "@/pages/home-page/shared/IonButton";
-import Icon from "@/shared/icon";
-import { forwardRef, memo, useEffect, useMemo, useState } from "react";
+import { IconButton } from "@/pages/shared/component/icon-button";
+import Icon from "@/pages/shared/component/icon";
+import { ChangeEvent, forwardRef, memo, useEffect, useState } from "react";
 import ChatEmotionPicker from "./chat-emotion-picker";
+import TextareaAutosize from "react-textarea-autosize";
+import CustomTextareaAutosize from "@/pages/shared/component/custom-texterea-auto-resize";
 
 interface ChatInputProps {
   setHadMessage: React.Dispatch<React.SetStateAction<boolean | undefined>>;
@@ -14,17 +14,19 @@ const ChatInputs = forwardRef<HTMLTextAreaElement, ChatInputProps>(
     const [expand, setExpand] = useState(false);
 
     const handleChangeMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (e.target.value !== "" && message == "") setHadMessage(true);
-      else if (e.target.value == "") setHadMessage(false);
-
       setMessage(e.target.value);
     };
     useEffect(() => {
-      if (message !== "") setExpand(true);
-      else setExpand(false);
-    }, [message]);
+      if (message !== "") {
+        setExpand(true);
+        setHadMessage(true);
+      } else {
+        setExpand(false);
+        setHadMessage(false);
+      }
+    }, [message, setHadMessage]);
     return (
-      <div className="col-span-8 grid grid-cols-8">
+      <div className="col-span-8 grid grid-cols-8 items-end">
         {!expand && (
           <IconButton
             className={`col-span-1`}
@@ -44,15 +46,15 @@ const ChatInputs = forwardRef<HTMLTextAreaElement, ChatInputProps>(
           />
         )}
         <div
-          className={`relative flex items-start  ${expand ? "col-span-8" : "col-span-5"}`}
+          className={`relative flex items-end  ${expand ? "col-span-8" : "col-span-5"}`}
         >
-          <Textarea
-            rows={1}
-            className={`resize-y rounded-xl scrollbar-none focus:outline-none`}
+          <CustomTextareaAutosize
             onFocus={() => setExpand(true)}
             onBlur={() => setExpand(false)}
             value={message}
-            onChange={(e) => handleChangeMessage(e)}
+            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+              handleChangeMessage(e)
+            }
             ref={ref}
           />
           <ChatEmotionPicker setMessage={setMessage} />

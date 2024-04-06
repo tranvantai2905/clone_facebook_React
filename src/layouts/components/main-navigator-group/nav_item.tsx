@@ -1,4 +1,4 @@
-import Icon from "@/shared/icon";
+import Icon from "@/pages/shared/component/icon";
 
 export const navItem = [
   {

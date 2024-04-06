@@ -16,6 +16,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
   return (
     <Suspense fallback={fallback}>
       <LucideIcon
+        strokeWidth={"1.5px"}
         className={cn("h-5 w-5", className)}
         ref={ref}
         {...otherProps}

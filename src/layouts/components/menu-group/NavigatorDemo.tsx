@@ -17,7 +17,7 @@ import {
   CustomNavigationMenuTrigger,
 } from "@/components/custom/navigation-menu";
 import Avatar from "@/components/custom/avatar";
-import Icon from "@/shared/icon";
+import Icon from "@/pages/shared/component/icon";
 import { useInfo } from "@/pages/shared/custom-hooks";
 import { Info } from "@/pages/shared/custom-hooks/_types";
 

@@ -1,5 +1,5 @@
-import { IconButton } from "@/pages/home-page/shared/IonButton";
-import Icon from "@/shared/icon";
+import { IconButton } from "@/pages/shared/component/icon-button";
+import Icon from "@/pages/shared/component/icon";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -37,7 +37,7 @@ const ChatEmotionPicker = ({ setMessage }: ChatEmotionPickerProps) => {
   }, [openPicker]);
 
   return (
-    <div className="containPicker relative w-fit">
+    <div className="containPicker relative flex h-full w-fit items-end justify-center ">
       <IconButton
         className={`col-span-1`}
         onClick={() => handleOpenPicker()}
@@ -58,6 +58,8 @@ const ChatEmotionPicker = ({ setMessage }: ChatEmotionPickerProps) => {
               previewPosition={"none"}
               navPosition={"bottom"}
               theme={"light"}
+              locale={"vn"}
+              skin={5}
             />
           </motion.div>
         )}

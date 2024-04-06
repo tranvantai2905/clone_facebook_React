@@ -1,8 +1,8 @@
 import Avatar from "@/components/custom/avatar";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import PostDialog from "./PostDialog";
-import { IconButton } from "../../shared/IonButton";
-import Icon from "@/shared/icon";
+import { IconButton } from "../../../shared/component/icon-button";
+import Icon from "@/pages/shared/component/icon";
 import { PostActionTyp } from "./_types";
 import { item } from "./_item";
 

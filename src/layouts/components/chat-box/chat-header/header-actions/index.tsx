@@ -1,6 +1,6 @@
 import { ChatContext } from "@/layouts/chat-context";
-import { IconButton } from "@/pages/home-page/shared/IonButton";
-import Icon from "@/shared/icon";
+import { IconButton } from "@/pages/shared/component/icon-button";
+import Icon from "@/pages/shared/component/icon";
 import { memo, useCallback, useContext, useMemo } from "react";
 import { useChatBoxContext } from "../../chat-context";
 import { OnlineUserTyp } from "@/pages/home-page/right-sidebar/_types";

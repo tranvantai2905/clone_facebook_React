@@ -4,11 +4,11 @@ import {
   SideBarItemWithImage,
   SideBarItemWithUser,
 } from "../shared/SideBarItem";
-import Icon from "@/shared/icon";
+import Icon from "@/pages/shared/component/icon";
 import { page_action_list } from "./_item";
 import Actions from "./Actions";
 
-import { CustomTooltip } from "../shared/CustomTooltip";
+import { CustomTooltip } from "../../shared/component/custom-tool-tip";
 import { OnlineUserTyp, Page } from "./_types";
 import OnlineUserItem from "./OnlineUserItem";
 

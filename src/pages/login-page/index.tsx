@@ -1,4 +1,4 @@
-import Footer from "../shared/footer";
+import Footer from "../shared/component/footer";
 import LoginBox from "./LoginBox";
 const LoginPage = () => {
   return (

@@ -2,8 +2,8 @@ import Avatar from "@/components/custom/avatar";
 import { PagePostTyp, PostTyp } from "../_types";
 import { Link } from "react-router-dom";
 import { timeSince } from "@/utils";
-import Icon from "@/shared/icon";
-import { IconButton } from "@/pages/home-page/shared/IonButton";
+import Icon from "@/pages/shared/component/icon";
+import { IconButton } from "@/pages/shared/component/icon-button";
 import { Button } from "@/components/ui/button";
 import { HeaderStrategyTyp } from "./_types";
 

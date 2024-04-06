@@ -1,6 +1,5 @@
-import CustomInput from "@/components/custom/input";
-import { IconButton } from "@/pages/home-page/shared/IonButton";
-import Icon from "@/shared/icon";
+import { IconButton } from "@/pages/shared/component/icon-button";
+import Icon from "@/pages/shared/component/icon";
 import { useRef, useState } from "react";
 import ChatInputs from "./chat-inputs";
 
@@ -16,7 +15,7 @@ const ChatActions = () => {
   };
 
   return (
-    <div className="grid grid-cols-10 px-1 py-2">
+    <div className="grid grid-cols-10 items-end px-1 py-2">
       <IconButton
         className="col-span-1"
         startIcon={<Icon name="plus" className="h-5 w-5" />}

@@ -1,5 +1,5 @@
 import { User } from "@/app-context/type";
-import { PageTyp } from "@/shared/types";
+import { PageTyp } from "@/pages/shared/types";
 
 export type PostTyp = {
   post_user: User;
