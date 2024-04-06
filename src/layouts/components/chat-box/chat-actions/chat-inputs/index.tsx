@@ -30,7 +30,6 @@ const ChatInputs = forwardRef<HTMLTextAreaElement, ChatInputProps>(
     };
     const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if (e.key === "Enter") {
-        e.preventDefault();
         handleSend();
         setMessage("");
       }

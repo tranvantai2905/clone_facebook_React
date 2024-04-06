@@ -45,17 +45,11 @@ const ChatBox = ({ user, key }: ChatBoxProps) => {
     const result = await httpService.postMessages(user, message);
     return result;
   };
-  const responseMessage = async () => {
-    await httpService.callOpenAI();
-  };
 
   const addMessage = async (message: MessageTyp) => {
-    console.log("addMessage called");
     await postMessage(user, message)
       .then(async (res) => {
         if (res == true) {
-          await fetchMessage(user);
-          await responseMessage();
           await fetchMessage(user);
         }
       })
