@@ -34,15 +34,17 @@ const ChatMessages = forwardRef(
 );
 
 const ChatMessagesHOC = () => {
-  const { user } = useChatBoxContext();
-  const [messages] = useMessages() as [MessageTyp[]];
+  const { user, messages } = useChatBoxContext();
 
   const userMemo = useMemo(() => user, [user]);
   const messagesMemo = useMemo(() => messages, [messages]);
 
   return (
     <>
-      <ChatMessages user={userMemo as OnlineUserTyp} messages={messagesMemo} />
+      <ChatMessages
+        user={userMemo as OnlineUserTyp}
+        messages={messagesMemo as MessageTyp[]}
+      />
     </>
   );
 };

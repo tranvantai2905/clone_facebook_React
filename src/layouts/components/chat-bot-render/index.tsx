@@ -7,7 +7,7 @@ import { AnimatePresence } from "framer-motion";
 const ChatBoxRender = () => {
   const { selected_users } = useContext(ChatContext) as ChatContextTyp;
   return (
-    <div className="fixed bottom-1 right-0 mr-10 flex justify-end gap-3">
+    <div className="fixed bottom-1 right-0 mr-10 flex items-end justify-end gap-3">
       <AnimatePresence mode="popLayout">
         {renderChatBox(selected_users)}
       </AnimatePresence>

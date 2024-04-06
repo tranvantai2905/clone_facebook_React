@@ -17,15 +17,15 @@ const ChatEmotionPicker = ({ setMessage }: ChatEmotionPickerProps) => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: Event) => {
       const emojiPickerElement = document.querySelector(".picker"); // Adjust selector if needed
       const emojiPickerElementParent = document.querySelector(".containPicker");
       // Check if the click target is outside the emoji picker element (including its children)
       if (
         emojiPickerElement &&
         emojiPickerElementParent &&
-        !emojiPickerElement.contains(event.target) &&
-        !emojiPickerElementParent.contains(event.target)
+        !emojiPickerElement.contains(event.target as HTMLInputElement) &&
+        !emojiPickerElementParent.contains(event.target as HTMLInputElement)
       ) {
         setOpenPicker(false);
       }
@@ -54,7 +54,9 @@ const ChatEmotionPicker = ({ setMessage }: ChatEmotionPickerProps) => {
           >
             <Picker
               data={data}
-              onEmojiSelect={(icon) => setMessage((curr) => curr + icon.native)}
+              onEmojiSelect={(icon: { native: string }) =>
+                setMessage((curr) => curr + icon.native)
+              }
               previewPosition={"none"}
               navPosition={"bottom"}
               theme={"light"}

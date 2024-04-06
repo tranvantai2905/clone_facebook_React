@@ -1,4 +1,4 @@
-import { MessageTyp, WhoSend } from "./_types";
+import { WhoSend, MessageTyp } from "./chat-message/_types";
 
 const mockMessages: MessageTyp[] = [
   {
