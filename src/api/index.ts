@@ -85,12 +85,12 @@ class HttpService {
   }
 }
 
-function formatHistory(messages: MessageTyp[]): string {
-  return messages.reduce((acc, message) => {
-    const formattedMessage = `${message.type === WhoSend.Me ? "Tôi" : message.type}: ${message.message} (at ${message.date.toLocaleString()})`;
-    return `${acc ? `${acc}\n` : ""}${formattedMessage}`;
-  }, "");
-}
+// function formatHistory(messages: MessageTyp[]): string {
+//   return messages.reduce((acc, message) => {
+//     const formattedMessage = `${message.type === WhoSend.Me ? "Tôi" : message.type}: ${message.message} (at ${message.date.toLocaleString()})`;
+//     return `${acc ? `${acc}\n` : ""}${formattedMessage}`;
+//   }, "");
+// }
 
 const httpService = new HttpService();
 export default httpService;

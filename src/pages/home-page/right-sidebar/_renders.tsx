@@ -2,11 +2,10 @@ import {
   Item,
   SideBarItemWithIcon,
   SideBarItemWithImage,
-  SideBarItemWithUser,
 } from "../shared/SideBarItem";
 import Icon from "@/pages/shared/component/icon";
 import { page_action_list } from "./_item";
-import Actions from "./Actions";
+import Actions from "./actions";
 
 import { CustomTooltip } from "../../shared/component/custom-tool-tip";
 import { OnlineUserTyp, Page } from "./_types";

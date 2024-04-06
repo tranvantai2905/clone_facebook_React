@@ -37,7 +37,7 @@ const headerStrategy: HeaderStrategyTyp = {
   ),
 };
 function isPagePostTyp(post: PostTyp | PagePostTyp): post is PagePostTyp {
-  return typeof post.page !== "undefined"; // Check for existence of the 'page' property
+  return typeof post?.page !== "undefined"; // Check for existence of the 'page' property
 }
 const renderHeaderPost = (post: PostTyp | PagePostTyp) => (
   <div className="flex items-center gap-3">

@@ -14,12 +14,12 @@ export const AppContext = createContext<AppContextTyp>({
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const loggedIn = useMemo(() => user !== null, [user]);
-  const getUserInfo = (loginUser: LoginUser) => {
-    return HttpService.getUserInfo(loginUser);
+  const getUserInfo = async (loginUser: LoginUser) => {
+    return await HttpService.getUserInfo(loginUser);
   };
-  const login = (loginUser: LoginUser) => {
+  const login = async (loginUser: LoginUser) => {
     if (user == null) {
-      const userInfo = getUserInfo(loginUser);
+      const userInfo = await getUserInfo(loginUser);
       setUser(userInfo);
 
       return true;
