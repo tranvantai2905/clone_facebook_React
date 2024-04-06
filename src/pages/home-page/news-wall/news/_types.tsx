@@ -6,7 +6,7 @@ export type PostTyp = {
   date_post: Date;
   content: string;
   interact_users: InteractUserTyp[];
-  page?: null;
+  page?: PageTyp;
 };
 
 export type PagePostTyp = PostTyp & {

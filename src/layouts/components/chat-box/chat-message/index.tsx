@@ -13,7 +13,7 @@ interface ChatMessagesProps {
 }
 
 const ChatMessages = forwardRef(
-  ({ user, messages, isLoading }: ChatMessagesProps, ref) => {
+  ({ messages, isLoading }: ChatMessagesProps, ref) => {
     const messagesEndRef = useRef<null | HTMLDivElement>(null);
     const scrollToBottom = () => {
       messagesEndRef.current?.scrollIntoView({ behavior: "instant" });
